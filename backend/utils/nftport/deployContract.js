@@ -112,7 +112,7 @@ const deployContract = async () => {
     }
     console.log(`Check /build/contract/_deployContractResponse.json for more information. Run "npm run get_contract" to get the contract details.`);
   } catch (error) {
-    console.log('CATCH: Contract deployment failed', `ERROR: ${error}`);
+    console.log(`CATCH: Contract deployment failed`, `ERROR: ${error}`);
   }
 };
 
