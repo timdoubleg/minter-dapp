@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codeSTACKr/nft-landing-page.git"
+    "url": "git+https://github.com/timdoubleg/minter-dapp"
   },
   "keywords": [],
-  "author": "Jesse Hall (codeSTACKr)",
+  "author": "Gregory",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/codeSTACKr/nft-landing-page/issues"
+    "url": "https://github.com/timdoubleg/minter-dapp"
   },
-  "homepage": "https://github.com/codeSTACKr/nft-landing-page#readme",
+  "homepage": "https://github.com/timdoubleg/minter-dapp",
   "dependencies": {
     "node-fetch": "^2.6.7"
   }

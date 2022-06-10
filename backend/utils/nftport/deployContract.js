@@ -3,6 +3,8 @@ const basePath = process.cwd();
 const fs = require("fs");
 const yesno = require('yesno');
 
+
+
 const {
   fetchNoRetry,
 } = require(`${basePath}/utils/functions/fetchWithRetry.js`);
@@ -26,6 +28,7 @@ let {
   PRESALE_WHITELISTED_ADDRESSES
 } = require(`${basePath}/src/config.js`);
 
+
 const deployContract = async () => {
   const ok = await yesno({
     question: `Is all REQUIRED contract information correct in config.js? (y/n):`,
@@ -36,7 +39,6 @@ const deployContract = async () => {
     console.log("Exiting...");
     process.exit(0);
   }
-
   if(GENERIC) {
     try {
       let jsonFile = fs.readFileSync(`${basePath}/build/ipfsMetasGeneric/_ipfsMetasResponse.json`);
@@ -44,6 +46,7 @@ const deployContract = async () => {
       if(metaData.response === "OK") {
         if(!PREREVEAL_TOKEN_URI) {
           PREREVEAL_TOKEN_URI = metaData.metadata_uri;
+
         }
       } else {
         console.log('There is an issue with the metadata upload. Please check the /build/_ipfsMetasGeneric/_ipfsMetasResponse.json file for more information. Running "npm run upload_metadata" may fix this issue.');
@@ -73,7 +76,6 @@ const deployContract = async () => {
   if (!fs.existsSync(path.join(`${basePath}/build`, "/contract"))) {
     fs.mkdirSync(path.join(`${basePath}/build`, "contract"));
   }
-
   try {
     const url = `https://api.nftport.xyz/v0/contracts/collections`;
     const contract = {
@@ -110,7 +112,7 @@ const deployContract = async () => {
     }
     console.log(`Check /build/contract/_deployContractResponse.json for more information. Run "npm run get_contract" to get the contract details.`);
   } catch (error) {
-    console.log(`CATCH: Contract deployment failed`, `ERROR: ${error}`);
+    console.log('CATCH: Contract deployment failed', `ERROR: ${error}`);
   }
 };
 
